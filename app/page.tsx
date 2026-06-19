@@ -102,6 +102,29 @@ export default function Home() {
             ]}
           />
 
+          {/* NGO Work */}
+          <MixedMediaCard 
+            title="NGO Initiatives & Impact"
+            role="Content & Visual Storyteller"
+            description="Campaign posters and social awareness creatives."
+            layout="css-grid"
+            images={[
+              "/images/ChatGPT Image Feb 19, 2026, 11_06_16 AM.png",
+              "/images/ChatGPT Image Mar 11, 2026, 11_23_55 AM.png",
+              "/images/ChatGPT Image Mar 8, 2026, 03_10_30 PM.png",
+              "/images/d105ec5c-cfeb-4cd2-a3e2-4f4b78974b2e (1).png"
+            ]}
+          />
+
+          {/* Product Marketing */}
+          <MixedMediaCard 
+            title="Product Marketing & Ads"
+            role="Video Editor & Ad Specialist"
+            description="High-converting commercial campaigns and product promos."
+            layout="standard-video"
+            videoSrc="/videos/Mount Breezead_1781883304758174.mp4"
+          />
+
         </div>
       </section>
 
