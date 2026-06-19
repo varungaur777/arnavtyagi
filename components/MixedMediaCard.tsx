@@ -11,22 +11,24 @@ interface MixedMediaCardProps {
   role: string;
   description?: string;
   layout: ProjectLayout;
+  videoSrc?: string;
+  images?: string[];
 }
 
-export function MixedMediaCard({ title, role, description, layout }: MixedMediaCardProps) {
+export function MixedMediaCard({ title, role, description, layout, videoSrc, images = [] }: MixedMediaCardProps) {
   
   const renderMedia = () => {
     switch (layout) {
       case "2-column":
         return (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 h-64 md:h-80">
-            <VideoPlayer aspectRatio="vertical" title="IG Reels/Ads Placeholder" />
+            <VideoPlayer aspectRatio="vertical" title="IG Reels/Ads" src={videoSrc} />
             <div className="grid grid-rows-2 gap-4 h-full">
-              <div className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 h-full">
-                <Image className="opacity-30" size={32} />
+              <div className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 h-full overflow-hidden relative">
+                {images[0] ? <img src={images[0]} className="object-cover w-full h-full" alt="Poster 1" /> : <Image className="opacity-30" size={32} />}
               </div>
-              <div className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 h-full">
-                <Image className="opacity-30" size={32} />
+              <div className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 h-full overflow-hidden relative">
+                {images[1] ? <img src={images[1]} className="object-cover w-full h-full" alt="Poster 2" /> : <Image className="opacity-30" size={32} />}
               </div>
             </div>
           </div>
@@ -34,24 +36,28 @@ export function MixedMediaCard({ title, role, description, layout }: MixedMediaC
       case "wide-video":
         return (
           <div className="mt-4">
-            <VideoPlayer aspectRatio="video" title="Cinematic 16:9 Placeholder" />
+            <VideoPlayer aspectRatio="video" title="Cinematic 16:9" src={videoSrc} />
           </div>
         );
       case "standard-video":
         return (
           <div className="mt-4 max-w-sm mx-auto">
-            <VideoPlayer aspectRatio="vertical" title="Vertical Video Placeholder" />
+            <VideoPlayer aspectRatio="vertical" title="Vertical Video" src={videoSrc} />
           </div>
         );
       case "css-grid":
         return (
           <div className="grid grid-cols-2 gap-4 mt-4 h-64 md:h-80">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 h-full">
-                <div className="text-center">
-                  <Image className="opacity-30 mx-auto mb-2" size={24} />
-                  <span className="text-xs text-muted-foreground">Poster {i}</span>
-                </div>
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 h-full overflow-hidden relative">
+                {images[i] ? (
+                  <img src={images[i]} className="object-cover w-full h-full" alt={`Poster ${i+1}`} />
+                ) : (
+                  <div className="text-center">
+                    <Image className="opacity-30 mx-auto mb-2" size={24} />
+                    <span className="text-xs text-muted-foreground">Poster {i+1}</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -59,7 +65,7 @@ export function MixedMediaCard({ title, role, description, layout }: MixedMediaC
       case "square-video":
         return (
           <div className="mt-4 max-w-sm mx-auto">
-            <VideoPlayer aspectRatio="square" title="Motion Graphic Placeholder" />
+            <VideoPlayer aspectRatio="square" title="Motion Graphic" src={videoSrc} />
           </div>
         );
     }

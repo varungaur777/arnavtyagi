@@ -56,7 +56,7 @@ export default function Home() {
           </div>
           
           <div className="shadow-[0_0_50px_-12px_rgba(123,44,191,0.5)] rounded-xl">
-            <VideoPlayer aspectRatio="video" title="Showreel Placeholder" />
+            <VideoPlayer aspectRatio="video" title="Showreel" src="/videos/Mount Breezead_1781883304758174.mp4" />
           </div>
         </motion.div>
       </section>
@@ -85,6 +85,8 @@ export default function Home() {
             title="RK Divine Creation"
             role="Creative Ads Designer"
             layout="2-column"
+            videoSrc="/videos/MopSpinnerbucketad__115442_789.mp4"
+            images={["/images/Picsart_25-05-01_00-00-00-255.png", "/images/Picsart_25-06-10_16-44-56-341.png"]}
           />
 
           {/* TITANFALL Series */}
@@ -93,6 +95,7 @@ export default function Home() {
             role="AI Prompt Engineer"
             description="Hyper-realistic VFX and apocalyptic disaster sequences."
             layout="wide-video"
+            videoSrc="/videos/Mount Breezead_1781883304758174.mp4"
           />
 
           {/* Guby Rogers Academy */}
@@ -101,6 +104,7 @@ export default function Home() {
             role="Brand Strategist"
             description="Corporate recruitment and educational content."
             layout="standard-video"
+            videoSrc="/videos/MopSpinnerbucketad__115442_789.mp4"
           />
 
           {/* ISN Report */}
@@ -108,6 +112,12 @@ export default function Home() {
             title="ISN Report"
             role="Logo & Poster Designer"
             layout="css-grid"
+            images={[
+              "/images/Picsart_25-06-10_18-29-29-505.png",
+              "/images/Picsart_25-10-06_02-22-07-062.png",
+              "/images/Picsart_25-10-07_19-35-57-721.png",
+              "/images/Picsart_25-12-10_14-44-04-464.png"
+            ]}
           />
 
           {/* The New Ladakh Model */}
@@ -115,6 +125,7 @@ export default function Home() {
             title="The New Ladakh Model"
             role="Motion Designer"
             layout="square-video"
+            videoSrc="/videos/Mount Breezead_1781883304758174.mp4"
           />
 
           {/* Luxury Summer Apparel */}
@@ -122,6 +133,7 @@ export default function Home() {
             title="Luxury Summer Apparel"
             role="Commercial Director"
             layout="wide-video"
+            videoSrc="/videos/MopSpinnerbucketad__115442_789.mp4"
           />
 
         </div>

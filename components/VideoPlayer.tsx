@@ -2,6 +2,7 @@
 
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { useState, useRef } from "react";
+import { cn } from "@/lib/utils";
 
 interface VideoPlayerProps {
   src?: string;
@@ -40,7 +41,7 @@ export function VideoPlayer({ src, poster, title, aspectRatio = "video" }: Video
   }[aspectRatio];
 
   return (
-    <div className={`relative w-full overflow-hidden rounded-xl bg-neutral-900 group ${aspectClass}`}>
+    <div className={cn("relative w-full overflow-hidden rounded-xl bg-neutral-900 group", aspectClass)}>
       {/* Placeholder Fallback if no src */}
       {!src && (
         <div className="absolute inset-0 flex items-center justify-center bg-neutral-900 text-neutral-600">
