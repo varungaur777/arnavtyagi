@@ -21,7 +21,7 @@ export default function Home() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center z-10"
         >
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 text-gradient glow-effect">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 text-gradient glow-effect glitch-text">
             ARNAV TYAGI
           </h1>
           <h2 className="text-xl md:text-3xl text-muted-foreground font-light tracking-wide mb-8">

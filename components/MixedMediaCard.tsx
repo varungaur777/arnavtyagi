@@ -19,13 +19,13 @@ export function MixedMediaCard({ title, role, description, layout }: MixedMediaC
     switch (layout) {
       case "2-column":
         return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 h-64 md:h-80">
             <VideoPlayer aspectRatio="vertical" title="IG Reels/Ads Placeholder" />
             <div className="grid grid-rows-2 gap-4 h-full">
-              <div className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 aspect-video">
+              <div className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 h-full">
                 <Image className="opacity-30" size={32} />
               </div>
-              <div className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 aspect-video">
+              <div className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 h-full">
                 <Image className="opacity-30" size={32} />
               </div>
             </div>
@@ -39,15 +39,15 @@ export function MixedMediaCard({ title, role, description, layout }: MixedMediaC
         );
       case "standard-video":
         return (
-          <div className="mt-4">
-            <VideoPlayer aspectRatio="video" title="Standard Video Placeholder" />
+          <div className="mt-4 max-w-sm mx-auto">
+            <VideoPlayer aspectRatio="vertical" title="Vertical Video Placeholder" />
           </div>
         );
       case "css-grid":
         return (
-          <div className="grid grid-cols-2 gap-4 mt-4">
+          <div className="grid grid-cols-2 gap-4 mt-4 h-64 md:h-80">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 aspect-square">
+              <div key={i} className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 h-full">
                 <div className="text-center">
                   <Image className="opacity-30 mx-auto mb-2" size={24} />
                   <span className="text-xs text-muted-foreground">Poster {i}</span>
@@ -58,7 +58,7 @@ export function MixedMediaCard({ title, role, description, layout }: MixedMediaC
         );
       case "square-video":
         return (
-          <div className="mt-4">
+          <div className="mt-4 max-w-sm mx-auto">
             <VideoPlayer aspectRatio="square" title="Motion Graphic Placeholder" />
           </div>
         );
