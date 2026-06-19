@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { VideoPlayer } from "@/components/VideoPlayer";
 import { ToolMarquee } from "@/components/ToolMarquee";
 import { Mail, Phone } from "lucide-react";
 
@@ -35,6 +36,54 @@ export default function Home() {
               <Phone className="w-5 h-5 group-hover:text-primary transition-colors" />
               +91 8586818817
             </a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* 2. Featured Video Campaigns */}
+      <section className="py-24 px-4 md:px-8 max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="mb-16 text-center">
+            <h3 className="text-sm font-bold tracking-widest uppercase text-primary mb-2">Portfolio</h3>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Featured Video Campaigns</h2>
+            <p className="text-xl text-muted-foreground mt-4 max-w-2xl mx-auto">
+              High-converting vertical video ads optimized for social media platforms.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            <div className="flex flex-col group">
+              <div className="shadow-[0_0_50px_-12px_rgba(123,44,191,0.3)] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.5)]">
+                <VideoPlayer 
+                  aspectRatio="vertical" 
+                  title="Mount Breeze Campaign" 
+                  src="/videos/Mount Breezead_1781883304758174.mp4" 
+                />
+              </div>
+              <div className="mt-6 px-2 text-center md:text-left">
+                <h4 className="font-bold text-xl group-hover:text-primary transition-colors">Mount Breeze</h4>
+                <p className="text-sm text-muted-foreground mt-2">Cinematic 3D & Product Video Ad</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col group">
+              <div className="shadow-[0_0_50px_-12px_rgba(123,44,191,0.3)] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.5)]">
+                <VideoPlayer 
+                  aspectRatio="vertical" 
+                  title="Mop Spinner Bucket Campaign" 
+                  src="/videos/MopSpinnerbucketad__115442_789.mp4" 
+                />
+              </div>
+              <div className="mt-6 px-2 text-center md:text-left">
+                <h4 className="font-bold text-xl group-hover:text-primary transition-colors">Mop Spinner Bucket</h4>
+                <p className="text-sm text-muted-foreground mt-2">Creative High-Conversion E-commerce Ad</p>
+              </div>
+            </div>
           </div>
         </motion.div>
       </section>
