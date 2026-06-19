@@ -1,0 +1,84 @@
+"use client";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { VideoPlayer } from "./VideoPlayer";
+import { Image } from "lucide-react";
+
+export type ProjectLayout = "2-column" | "wide-video" | "standard-video" | "css-grid" | "square-video";
+
+interface MixedMediaCardProps {
+  title: string;
+  role: string;
+  description?: string;
+  layout: ProjectLayout;
+}
+
+export function MixedMediaCard({ title, role, description, layout }: MixedMediaCardProps) {
+  
+  const renderMedia = () => {
+    switch (layout) {
+      case "2-column":
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <VideoPlayer aspectRatio="vertical" title="IG Reels/Ads Placeholder" />
+            <div className="grid grid-rows-2 gap-4 h-full">
+              <div className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 aspect-video">
+                <Image className="opacity-30" size={32} />
+              </div>
+              <div className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 aspect-video">
+                <Image className="opacity-30" size={32} />
+              </div>
+            </div>
+          </div>
+        );
+      case "wide-video":
+        return (
+          <div className="mt-4">
+            <VideoPlayer aspectRatio="video" title="Cinematic 16:9 Placeholder" />
+          </div>
+        );
+      case "standard-video":
+        return (
+          <div className="mt-4">
+            <VideoPlayer aspectRatio="video" title="Standard Video Placeholder" />
+          </div>
+        );
+      case "css-grid":
+        return (
+          <div className="grid grid-cols-2 gap-4 mt-4">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="bg-white/5 rounded-xl flex items-center justify-center border border-white/10 aspect-square">
+                <div className="text-center">
+                  <Image className="opacity-30 mx-auto mb-2" size={24} />
+                  <span className="text-xs text-muted-foreground">Poster {i}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+      case "square-video":
+        return (
+          <div className="mt-4">
+            <VideoPlayer aspectRatio="square" title="Motion Graphic Placeholder" />
+          </div>
+        );
+    }
+  };
+
+  return (
+    <Card className="h-full flex flex-col group hover:shadow-[0_0_30px_-5px_rgba(123,44,191,0.3)] transition-all duration-500">
+      <CardHeader>
+        <CardTitle className="text-2xl font-bold tracking-tight">{title}</CardTitle>
+        <div className="flex items-center gap-2 mt-2">
+          <span className="px-3 py-1 text-xs font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
+            {role}
+          </span>
+        </div>
+        {description && <CardDescription className="mt-4 text-base">{description}</CardDescription>}
+      </CardHeader>
+      <CardContent className="flex-grow">
+        {renderMedia()}
+      </CardContent>
+    </Card>
+  );
+}
