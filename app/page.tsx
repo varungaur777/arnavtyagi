@@ -89,24 +89,6 @@ export default function Home() {
             images={["/images/Picsart_25-05-01_00-00-00-255.png", "/images/Picsart_25-06-10_16-44-56-341.png"]}
           />
 
-          {/* TITANFALL Series */}
-          <MixedMediaCard 
-            title="TITANFALL Series"
-            role="AI Prompt Engineer"
-            description="Hyper-realistic VFX and apocalyptic disaster sequences."
-            layout="wide-video"
-            videoSrc="/videos/Mount Breezead_1781883304758174.mp4"
-          />
-
-          {/* Guby Rogers Academy */}
-          <MixedMediaCard 
-            title="Guby Rogers Academy"
-            role="Brand Strategist"
-            description="Corporate recruitment and educational content."
-            layout="standard-video"
-            videoSrc="/videos/MopSpinnerbucketad__115442_789.mp4"
-          />
-
           {/* ISN Report */}
           <MixedMediaCard 
             title="ISN Report"
@@ -118,22 +100,6 @@ export default function Home() {
               "/images/Picsart_25-10-07_19-35-57-721.png",
               "/images/Picsart_25-12-10_14-44-04-464.png"
             ]}
-          />
-
-          {/* The New Ladakh Model */}
-          <MixedMediaCard 
-            title="The New Ladakh Model"
-            role="Motion Designer"
-            layout="square-video"
-            videoSrc="/videos/Mount Breezead_1781883304758174.mp4"
-          />
-
-          {/* Luxury Summer Apparel */}
-          <MixedMediaCard 
-            title="Luxury Summer Apparel"
-            role="Commercial Director"
-            layout="wide-video"
-            videoSrc="/videos/MopSpinnerbucketad__115442_789.mp4"
           />
 
         </div>
