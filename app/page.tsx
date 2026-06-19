@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { VideoPlayer } from "@/components/VideoPlayer";
-import { MixedMediaCard } from "@/components/MixedMediaCard";
 import { ToolMarquee } from "@/components/ToolMarquee";
 import { Mail, Phone } from "lucide-react";
 
