@@ -1,11 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { ToolMarquee } from "@/components/ToolMarquee";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, Download, X } from "lucide-react";
 
 export default function Home() {
+  const [activeImage, setActiveImage] = useState<string | null>(null);
+
   return (
     <main className="min-h-screen">
       
@@ -127,14 +130,18 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                 {[10, 11].map((num) => (
-                  <div key={num} className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.3)] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.5)] border border-white/10 bg-neutral-900 aspect-[9/16]">
+                  <div 
+                    key={num} 
+                    onClick={() => setActiveImage(`/images/isn${num}.png`)}
+                    className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.3)] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.5)] border border-white/10 bg-neutral-950 aspect-[9/16] cursor-pointer"
+                  >
                     <img 
                       src={`/images/isn${num}.png`} 
                       alt={`ISN Report Portrait Poster ${num}`} 
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+                      className="object-contain w-full h-full p-2 group-hover:scale-[1.02] transition-transform duration-700" 
                     />
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-black via-transparent to-transparent opacity-60" />
-                    <div className="absolute bottom-6 left-6 right-6">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-black via-transparent to-transparent opacity-60 pointer-events-none" />
+                    <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
                       <span className="text-xs font-semibold text-primary uppercase tracking-wider">Portrait Release</span>
                       <h5 className="text-lg font-bold text-white mt-1">Campaign Poster {num - 9}</h5>
                     </div>
@@ -150,14 +157,18 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-                  <div key={num} className="group relative shadow-md rounded-xl overflow-hidden hover:scale-[1.03] transition-all duration-500 border border-white/5 bg-neutral-900 aspect-video">
+                  <div 
+                    key={num} 
+                    onClick={() => setActiveImage(`/images/isn${num}.png`)}
+                    className="group relative shadow-md rounded-xl overflow-hidden hover:scale-[1.03] transition-all duration-500 border border-white/5 bg-neutral-950 aspect-video cursor-pointer"
+                  >
                     <img 
                       src={`/images/isn${num}.png`} 
                       alt={`ISN Report Landscape Poster ${num}`} 
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" 
+                      className="object-contain w-full h-full p-2 group-hover:scale-[1.02] transition-transform duration-500" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4" />
-                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none" />
+                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none">
                       <span className="text-xs font-medium text-primary uppercase tracking-wider">Landscape Release</span>
                       <h5 className="font-bold text-white text-sm mt-0.5">Editorial Template {num}</h5>
                     </div>
@@ -194,14 +205,18 @@ export default function Home() {
           {/* 3-Column Portrait Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[1, 2, 3].map((num) => (
-              <div key={num} className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-900 aspect-[9/16]">
+              <div 
+                key={num} 
+                onClick={() => setActiveImage(`/images/rk${num}.png`)}
+                className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-950 aspect-[9/16] cursor-pointer"
+              >
                 <img 
                   src={`/images/rk${num}.png`} 
                   alt={`RK Divine Poster ${num}`} 
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+                  className="object-contain w-full h-full p-2 group-hover:scale-[1.02] transition-transform duration-700" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
-                <div className="absolute bottom-6 left-6 right-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 pointer-events-none" />
+                <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
                   <span className="text-xs font-semibold text-primary uppercase tracking-wider">Product Ad Campaign</span>
                   <h5 className="text-lg font-bold text-white mt-1">Creative Ad Poster {num}</h5>
                 </div>
@@ -229,6 +244,64 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {activeImage && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4"
+          >
+            {/* Close Button */}
+            <button 
+              onClick={() => setActiveImage(null)}
+              className="absolute top-6 right-6 p-3 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors z-10"
+            >
+              <X className="w-8 h-8" />
+            </button>
+
+            {/* Image Container */}
+            <motion.div 
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="relative max-w-4xl max-h-[75vh] w-full h-full flex items-center justify-center"
+            >
+              <img 
+                src={activeImage} 
+                alt="Enlarged view" 
+                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl border border-white/10"
+              />
+            </motion.div>
+
+            {/* Action Bar */}
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className="mt-8 flex gap-4"
+            >
+              <a 
+                href={activeImage} 
+                download={activeImage.split('/').pop()}
+                className="px-6 py-3 bg-primary text-primary-foreground font-bold rounded-full hover:bg-primary/90 flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(123,44,191,0.4)] cursor-pointer"
+              >
+                <Download className="w-5 h-5" />
+                Download Image
+              </a>
+              <button 
+                onClick={() => setActiveImage(null)}
+                className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-full transition-all"
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </main>
   );
