@@ -133,12 +133,12 @@ export default function Home() {
                   <div 
                     key={num} 
                     onClick={() => setActiveImage(`/images/isn${num}.png`)}
-                    className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.3)] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.5)] border border-white/10 bg-neutral-950 aspect-[9/16] cursor-pointer"
+                    className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.3)] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.5)] border border-white/10 bg-neutral-900 aspect-[3/4] cursor-pointer"
                   >
                     <img 
                       src={`/images/isn${num}.png`} 
                       alt={`ISN Report Portrait Poster ${num}`} 
-                      className="object-contain w-full h-full p-2 group-hover:scale-[1.02] transition-transform duration-700" 
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
                     />
                     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-black via-transparent to-transparent opacity-60 pointer-events-none" />
                     <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
@@ -208,12 +208,12 @@ export default function Home() {
               <div 
                 key={num} 
                 onClick={() => setActiveImage(`/images/rk${num}.png`)}
-                className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-950 aspect-[9/16] cursor-pointer"
+                className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-900 aspect-[3/4] cursor-pointer"
               >
                 <img 
                   src={`/images/rk${num}.png`} 
                   alt={`RK Divine Poster ${num}`} 
-                  className="object-contain w-full h-full p-2 group-hover:scale-[1.02] transition-transform duration-700" 
+                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 pointer-events-none" />
                 <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
@@ -256,12 +256,12 @@ export default function Home() {
                 <div 
                   key={num} 
                   onClick={() => setActiveImage(`/images/ngo${num}.${ext}`)}
-                  className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-950 aspect-[9/16] cursor-pointer"
+                  className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-900 aspect-[2/3] cursor-pointer"
                 >
                   <img 
                     src={`/images/ngo${num}.${ext}`} 
                     alt={`NGO Campaign Poster ${num}`} 
-                    className="object-contain w-full h-full p-2 group-hover:scale-[1.02] transition-transform duration-700" 
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 pointer-events-none" />
                   <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
