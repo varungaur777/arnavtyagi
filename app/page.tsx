@@ -11,9 +11,9 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Smooth transition: fade preloader out after window has finished loading
+    // Smooth cinematic transition: fade preloader out after a slow flow delay
     const handleLoad = () => {
-      setTimeout(() => setIsLoading(false), 800);
+      setTimeout(() => setIsLoading(false), 2000); // Slower delay for a cinematic feel
     };
 
     if (document.readyState === "complete") {
@@ -25,7 +25,22 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen pt-20">
+
+      {/* Floating Header Navigation */}
+      <header className="fixed top-0 left-0 right-0 z-40 bg-background/20 backdrop-blur-md border-b border-white/5 py-4 px-6 md:px-12 flex justify-between items-center">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full border border-primary/30 bg-primary/5 flex items-center justify-center shadow-[0_0_15px_rgba(123,44,191,0.2)]">
+            <span className="text-sm font-black tracking-widest text-primary text-gradient">AT</span>
+          </div>
+          <span className="text-sm font-bold tracking-wider text-white uppercase hidden sm:inline-block">Arnav Tyagi</span>
+        </div>
+        <div className="flex items-center gap-6">
+          <a href="mailto:arnavtyagi919@gmail.com" className="px-5 py-2 bg-primary/10 hover:bg-primary/20 text-primary hover:text-white font-semibold text-sm rounded-full border border-primary/20 hover:scale-105 transition-all duration-300">
+            Get In Touch
+          </a>
+        </div>
+      </header>
       
       {/* 1. Hero Section */}
       <section className="relative flex flex-col items-center justify-center min-h-[90vh] px-4 overflow-hidden">
@@ -373,39 +388,49 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
+            transition={{ duration: 1.2, ease: "easeInOut" }} // Slower exit transition
             className="fixed inset-0 z-[9999] flex items-center justify-center bg-background"
           >
             <div className="text-center">
+              {/* Stylized AT Logo Mark */}
+              <motion.div 
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                className="w-20 h-20 mx-auto mb-6 rounded-full border border-primary/40 bg-primary/5 flex items-center justify-center shadow-[0_0_35px_rgba(123,44,191,0.2)]"
+              >
+                <span className="text-2xl font-black tracking-widest text-primary text-gradient glow-effect">AT</span>
+              </motion.div>
+
               <motion.h1
-                initial={{ scale: 0.9, opacity: 0.5 }}
+                initial={{ scale: 0.95, opacity: 0.5 }}
                 animate={{ 
-                  scale: [0.9, 1.05, 0.9],
+                  scale: [0.95, 1.02, 0.95],
                   opacity: [0.5, 1, 0.5]
                 }}
                 transition={{ 
-                  duration: 1.5, 
+                  duration: 2.5, // Slower pulse
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="text-4xl md:text-6xl font-extrabold tracking-tighter text-gradient glow-effect mb-4 uppercase"
+                className="text-4xl md:text-5xl font-extrabold tracking-tighter text-gradient glow-effect mb-4 uppercase"
               >
                 ARNAV TYAGI
               </motion.h1>
-              <div className="h-1 w-24 bg-primary mx-auto rounded-full overflow-hidden relative">
+              <div className="h-[2px] w-28 bg-primary/20 mx-auto rounded-full overflow-hidden relative">
                 <motion.div 
                   initial={{ left: "-100%" }}
                   animate={{ left: "100%" }}
                   transition={{ 
-                    duration: 1.2, 
+                    duration: 2.0, // Slower scanning line
                     repeat: Infinity, 
                     ease: "easeInOut" 
                   }}
-                  className="absolute top-0 bottom-0 w-1/2 bg-white rounded-full"
+                  className="absolute top-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"
                 />
               </div>
-              <p className="text-xs text-muted-foreground tracking-widest uppercase mt-4 opacity-60">
-                Loading Portfolio
+              <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mt-4 opacity-50 font-medium">
+                Loading Cinematic Experience
               </p>
             </div>
           </motion.div>
