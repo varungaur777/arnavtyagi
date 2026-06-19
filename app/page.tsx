@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { ToolMarquee } from "@/components/ToolMarquee";
@@ -8,6 +8,21 @@ import { Mail, Phone, Download, X } from "lucide-react";
 
 export default function Home() {
   const [activeImage, setActiveImage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Smooth transition: fade preloader out after window has finished loading
+    const handleLoad = () => {
+      setTimeout(() => setIsLoading(false), 800);
+    };
+
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
+  }, []);
 
   return (
     <main className="min-h-screen">
@@ -348,6 +363,51 @@ export default function Home() {
                 Close
               </button>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Preloader Splash Screen */}
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-background"
+          >
+            <div className="text-center">
+              <motion.h1
+                initial={{ scale: 0.9, opacity: 0.5 }}
+                animate={{ 
+                  scale: [0.9, 1.05, 0.9],
+                  opacity: [0.5, 1, 0.5]
+                }}
+                transition={{ 
+                  duration: 1.5, 
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="text-4xl md:text-6xl font-extrabold tracking-tighter text-gradient glow-effect mb-4 uppercase"
+              >
+                ARNAV TYAGI
+              </motion.h1>
+              <div className="h-1 w-24 bg-primary mx-auto rounded-full overflow-hidden relative">
+                <motion.div 
+                  initial={{ left: "-100%" }}
+                  animate={{ left: "100%" }}
+                  transition={{ 
+                    duration: 1.2, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                  className="absolute top-0 bottom-0 w-1/2 bg-white rounded-full"
+                />
+              </div>
+              <p className="text-xs text-muted-foreground tracking-widest uppercase mt-4 opacity-60">
+                Loading Portfolio
+              </p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
