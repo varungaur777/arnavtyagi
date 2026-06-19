@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { VideoPlayer } from "@/components/VideoPlayer";
 import { ToolMarquee } from "@/components/ToolMarquee";
 import { Mail, Phone } from "lucide-react";
 
@@ -36,26 +35,6 @@ export default function Home() {
               <Phone className="w-5 h-5 group-hover:text-primary transition-colors" />
               +91 8586818817
             </a>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* 2. Creative Showreel (The Hook) */}
-      <section className="py-24 px-4 md:px-8 max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="mb-8 text-center md:text-left">
-            <h3 className="text-sm font-bold tracking-widest uppercase text-primary mb-2">The Hook</h3>
-            <h2 className="text-3xl md:text-4xl font-bold">60-Second Creative Showreel</h2>
-            <p className="text-muted-foreground mt-2">AI Video, CapCut Edits, & Ad Campaigns</p>
-          </div>
-          
-          <div className="shadow-[0_0_50px_-12px_rgba(123,44,191,0.5)] rounded-xl">
-            <VideoPlayer aspectRatio="video" title="Showreel" src="/videos/Mount Breezead_1781883304758174.mp4" />
           </div>
         </motion.div>
       </section>
