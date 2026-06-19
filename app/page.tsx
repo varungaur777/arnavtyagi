@@ -96,18 +96,77 @@ export default function Home() {
         <ToolMarquee />
       </section>
 
-      {/* 3. Featured Campaigns & Projects */}
-      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold mb-4">Featured Campaigns & Projects</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A curated selection of high-converting ads, cinematic edits, and brand identities.
-          </p>
-        </div>
+      {/* 3. ISN Report Section */}
+      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto border-t border-white/10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Section Header */}
+          <div className="mb-16 text-center">
+            <h3 className="text-sm font-bold tracking-widest uppercase text-primary mb-2">Editorial Design</h3>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">ISN Report</h2>
+            <div className="flex justify-center mt-4">
+              <span className="px-4 py-1.5 text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
+                Lead Logo & Poster Designer / Social Media Manager
+              </span>
+            </div>
+            <p className="text-xl text-muted-foreground mt-6 max-w-2xl mx-auto">
+              Independent News & Media brand identity. Created the signature logo and produce recurring AI-assisted poster templates for rapid daily editorial releases.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Project cards will be added here one by one */}
-        </div>
+          {/* Media Layout */}
+          <div className="space-y-16">
+            {/* Portrait Posters (Featured) */}
+            <div>
+              <div className="text-center mb-8">
+                <h4 className="text-lg font-semibold uppercase tracking-wider text-muted-foreground">Featured Editorial Posters</h4>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                {[10, 11].map((num) => (
+                  <div key={num} className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.3)] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.5)] border border-white/10 bg-neutral-900 aspect-[9/16]">
+                    <img 
+                      src={`/images/isn${num}.png`} 
+                      alt={`ISN Report Portrait Poster ${num}`} 
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+                    />
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-black via-transparent to-transparent opacity-60" />
+                    <div className="absolute bottom-6 left-6 right-6">
+                      <span className="text-xs font-semibold text-primary uppercase tracking-wider">Portrait Release</span>
+                      <h5 className="text-lg font-bold text-white mt-1">Campaign Poster {num - 9}</h5>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Landscape Posters Grid */}
+            <div>
+              <div className="text-center mb-8">
+                <h4 className="text-lg font-semibold uppercase tracking-wider text-muted-foreground">News & Media Templates</h4>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+                  <div key={num} className="group relative shadow-md rounded-xl overflow-hidden hover:scale-[1.03] transition-all duration-500 border border-white/5 bg-neutral-900 aspect-video">
+                    <img 
+                      src={`/images/isn${num}.png`} 
+                      alt={`ISN Report Landscape Poster ${num}`} 
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4" />
+                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                      <span className="text-xs font-medium text-primary uppercase tracking-wider">Landscape Release</span>
+                      <h5 className="font-bold text-white text-sm mt-0.5">Editorial Template {num}</h5>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* 5. Footer */}
