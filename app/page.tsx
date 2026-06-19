@@ -79,52 +79,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
-          {/* RK Divine Creation */}
-          <MixedMediaCard 
-            title="RK Divine Creation"
-            role="Creative Ads Designer"
-            layout="2-column"
-            videoSrc="/videos/MopSpinnerbucketad__115442_789.mp4"
-            images={["/images/Picsart_25-05-01_00-00-00-255.png", "/images/Picsart_25-06-10_16-44-56-341.png"]}
-          />
-
-          {/* ISN Report */}
-          <MixedMediaCard 
-            title="ISN Report"
-            role="Logo & Poster Designer"
-            layout="css-grid"
-            images={[
-              "/images/Picsart_25-06-10_18-29-29-505.png",
-              "/images/Picsart_25-10-06_02-22-07-062.png",
-              "/images/Picsart_25-10-07_19-35-57-721.png",
-              "/images/Picsart_25-12-10_14-44-04-464.png"
-            ]}
-          />
-
-          {/* NGO Work */}
-          <MixedMediaCard 
-            title="NGO Initiatives & Impact"
-            role="Content & Visual Storyteller"
-            description="Campaign posters and social awareness creatives."
-            layout="css-grid"
-            images={[
-              "/images/ChatGPT Image Feb 19, 2026, 11_06_16 AM.png",
-              "/images/ChatGPT Image Mar 11, 2026, 11_23_55 AM.png",
-              "/images/ChatGPT Image Mar 8, 2026, 03_10_30 PM.png",
-              "/images/d105ec5c-cfeb-4cd2-a3e2-4f4b78974b2e (1).png"
-            ]}
-          />
-
-          {/* Product Marketing */}
-          <MixedMediaCard 
-            title="Product Marketing & Ads"
-            role="Video Editor & Ad Specialist"
-            description="High-converting commercial campaigns and product promos."
-            layout="standard-video"
-            videoSrc="/videos/Mount Breezead_1781883304758174.mp4"
-          />
-
+          {/* Project cards will be added here one by one */}
         </div>
       </section>
 
