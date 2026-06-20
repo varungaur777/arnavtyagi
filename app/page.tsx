@@ -232,9 +232,9 @@ export default function Home() {
             </p>
           </div>
 
-          {/* 3-Column Portrait Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[1, 2, 3].map((num) => (
+          {/* 4-Column Portrait Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {[1, 2, 3, 4].map((num) => (
               <div 
                 key={num} 
                 onClick={() => setActiveImage(`/images/rk${num}.png`)}
@@ -278,9 +278,9 @@ export default function Home() {
             </p>
           </div>
 
-          {/* 2-Column Portrait Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-3xl mx-auto">
-            {[1, 2].map((num) => {
+          {/* 3-Column Portrait Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[1, 2, 3].map((num) => {
               const ext = num === 1 ? 'jpg' : 'png';
               return (
                 <div 
