@@ -11,17 +11,9 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Smooth cinematic transition: fade preloader out after a slow flow delay
-    const handleLoad = () => {
-      setTimeout(() => setIsLoading(false), 2000); // Slower delay for a cinematic feel
-    };
-
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
-    }
+    // Show splash animation for exactly 2 seconds from page mount
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
