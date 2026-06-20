@@ -165,55 +165,58 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Portrait Posters Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
-            {[
-              { src: "/images/creative1.png", title: "Creative Poster 1", tag: "Product Ad" },
-              { src: "/images/creative4.png", title: "Creative Poster 2", tag: "Brand Campaign" },
-              { src: "/images/creative5.png", title: "Creative Poster 3", tag: "Creative Outreach" }
-            ].map((img, idx) => (
-              <div 
-                key={idx} 
-                onClick={() => setActiveImage(img.src)}
-                className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-900 aspect-[3/4] cursor-pointer"
-              >
-                <img 
-                  src={img.src} 
-                  alt={img.title} 
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 pointer-events-none" />
-                <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
-                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">{img.tag}</span>
-                  <h5 className="text-lg font-bold text-white mt-1">{img.title}</h5>
-                </div>
+          {/* Grid Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
+            {/* Portrait Poster 1 */}
+            <div 
+              onClick={() => setActiveImage("/images/creative1.png")}
+              className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-900 aspect-[3/4] cursor-pointer"
+            >
+              <img 
+                src="/images/creative1.png" 
+                alt="Creative Poster 1" 
+                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 pointer-events-none" />
+              <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
+                <span className="text-xs font-semibold text-primary uppercase tracking-wider">Product Ad</span>
+                <h5 className="text-lg font-bold text-white mt-1">Creative Ad Poster 1</h5>
               </div>
-            ))}
-          </div>
+            </div>
 
-          {/* Landscape Posters Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[
-              { src: "/images/creative2.png", title: "Creative Poster 4", tag: "Social Media Campaign" },
-              { src: "/images/creative3.jpg", title: "Creative Poster 5", tag: "Marketing Ad" }
-            ].map((img, idx) => (
-              <div 
-                key={idx} 
-                onClick={() => setActiveImage(img.src)}
-                className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-900 aspect-video cursor-pointer"
-              >
-                <img 
-                  src={img.src} 
-                  alt={img.title} 
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 pointer-events-none" />
-                <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
-                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">{img.tag}</span>
-                  <h5 className="text-lg font-bold text-white mt-1">{img.title}</h5>
-                </div>
+            {/* Landscape Poster 2 */}
+            <div 
+              onClick={() => setActiveImage("/images/creative2.png")}
+              className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-900 aspect-video cursor-pointer"
+            >
+              <img 
+                src="/images/creative2.png" 
+                alt="Creative Poster 2" 
+                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 pointer-events-none" />
+              <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
+                <span className="text-xs font-semibold text-primary uppercase tracking-wider">Social Ad Campaign</span>
+                <h5 className="text-lg font-bold text-white mt-1">Creative Ad Poster 2</h5>
               </div>
-            ))}
+            </div>
+
+            {/* Portrait Poster 3 */}
+            <div 
+              onClick={() => setActiveImage("/images/creative5.png")}
+              className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-900 aspect-[3/4] cursor-pointer"
+            >
+              <img 
+                src="/images/creative5.png" 
+                alt="Creative Poster 3" 
+                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 pointer-events-none" />
+              <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
+                <span className="text-xs font-semibold text-primary uppercase tracking-wider">Brand Campaign</span>
+                <h5 className="text-lg font-bold text-white mt-1">Creative Ad Poster 3</h5>
+              </div>
+            </div>
           </div>
         </motion.div>
       </section>
@@ -247,8 +250,8 @@ export default function Home() {
               <div className="text-center mb-8">
                 <h4 className="text-lg font-semibold uppercase tracking-wider text-muted-foreground">Featured Editorial Posters</h4>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                {[10, 11].map((num) => (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                {[10, 11, 12].map((num) => (
                   <div 
                     key={num} 
                     onClick={() => setActiveImage(`/images/isn${num}.png`)}
@@ -275,24 +278,27 @@ export default function Home() {
                 <h4 className="text-lg font-semibold uppercase tracking-wider text-muted-foreground">News & Media Templates</h4>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-                  <div 
-                    key={num} 
-                    onClick={() => setActiveImage(`/images/isn${num}.png`)}
-                    className="group relative shadow-md rounded-xl overflow-hidden hover:scale-[1.03] transition-all duration-500 border border-white/5 bg-neutral-950 aspect-video cursor-pointer"
-                  >
-                    <img 
-                      src={`/images/isn${num}.png`} 
-                      alt={`ISN Report Landscape Poster ${num}`} 
-                      className="object-contain w-full h-full p-2 group-hover:scale-[1.02] transition-transform duration-500" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none" />
-                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none">
-                      <span className="text-xs font-medium text-primary uppercase tracking-wider">Landscape Release</span>
-                      <h5 className="font-bold text-white text-sm mt-0.5">Editorial Template {num}</h5>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 13].map((num) => {
+                  const ext = num === 13 ? 'jpg' : 'png';
+                  return (
+                    <div 
+                      key={num} 
+                      onClick={() => setActiveImage(`/images/isn${num}.${ext}`)}
+                      className="group relative shadow-md rounded-xl overflow-hidden hover:scale-[1.03] transition-all duration-500 border border-white/5 bg-neutral-950 aspect-video cursor-pointer"
+                    >
+                      <img 
+                        src={`/images/isn${num}.${ext}`} 
+                        alt={`ISN Report Landscape Poster ${num}`} 
+                        className="object-contain w-full h-full p-2 group-hover:scale-[1.02] transition-transform duration-500" 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none" />
+                      <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none">
+                        <span className="text-xs font-medium text-primary uppercase tracking-wider">Landscape Release</span>
+                        <h5 className="font-bold text-white text-sm mt-0.5">Editorial Template {num === 13 ? 10 : num}</h5>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
