@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ThreeBackground } from "@/components/ThreeBackground";
 
-const inter = Inter({ subsets: ["latin"] });
+const americana = localFont({
+  src: "../public/fonts/Americana_Std_Roman.otf",
+});
 
 export const metadata: Metadata = {
   title: "Arnav Tyagi | Cinematic Portfolio",
@@ -17,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} min-h-screen bg-background text-foreground antialiased selection:bg-primary/30 relative`}>
+      <body className={`${americana.className} min-h-screen bg-background text-foreground antialiased selection:bg-primary/30 relative`}>
         <ThreeBackground />
         <div className="relative z-10">
           {children}
@@ -26,3 +28,4 @@ export default function RootLayout({
     </html>
   );
 }
+
