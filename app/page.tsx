@@ -89,7 +89,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="flex flex-col group">
               <div className="shadow-[0_0_50px_-12px_rgba(123,44,191,0.3)] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.5)]">
                 <VideoPlayer 
@@ -101,6 +101,20 @@ export default function Home() {
               <div className="mt-6 px-2 text-center md:text-left">
                 <h4 className="font-bold text-xl group-hover:text-primary transition-colors">Mount Breeze</h4>
                 <p className="text-sm text-muted-foreground mt-2">Cinematic 3D & Product Video Ad</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col group">
+              <div className="shadow-[0_0_50px_-12px_rgba(123,44,191,0.3)] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.5)]">
+                <VideoPlayer 
+                  aspectRatio="vertical" 
+                  title="Pizzaiolo Campaign" 
+                  src="/videos/pizzaiolo.mp4" 
+                />
+              </div>
+              <div className="mt-6 px-2 text-center md:text-left">
+                <h4 className="font-bold text-xl group-hover:text-primary transition-colors">Pizzaiolo</h4>
+                <p className="text-sm text-muted-foreground mt-2">Premium Food & E-commerce Promo Ad</p>
               </div>
             </div>
 
@@ -127,6 +141,81 @@ export default function Home() {
           <h2 className="text-2xl font-bold">AI & Creative Arsenal</h2>
         </div>
         <ToolMarquee />
+      </section>
+
+      {/* Commercial & Creative Campaigns Section */}
+      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto border-t border-white/10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Section Header */}
+          <div className="mb-16 text-center">
+            <h3 className="text-sm font-bold tracking-widest uppercase text-primary mb-2">Graphic Design</h3>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Commercial & Creative Campaigns</h2>
+            <div className="flex justify-center mt-4">
+              <span className="px-4 py-1.5 text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
+                Creative Ads Specialist & Brand Designer
+              </span>
+            </div>
+            <p className="text-xl text-muted-foreground mt-6 max-w-2xl mx-auto">
+              A curated collection of premium promotional posters and visual brand advertisements designed for maximum marketing impact.
+            </p>
+          </div>
+
+          {/* Portrait Posters Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+            {[
+              { src: "/images/creative1.png", title: "Creative Poster 1", tag: "Product Ad" },
+              { src: "/images/creative4.png", title: "Creative Poster 2", tag: "Brand Campaign" },
+              { src: "/images/creative5.png", title: "Creative Poster 3", tag: "Creative Outreach" }
+            ].map((img, idx) => (
+              <div 
+                key={idx} 
+                onClick={() => setActiveImage(img.src)}
+                className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-900 aspect-[3/4] cursor-pointer"
+              >
+                <img 
+                  src={img.src} 
+                  alt={img.title} 
+                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 pointer-events-none" />
+                <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">{img.tag}</span>
+                  <h5 className="text-lg font-bold text-white mt-1">{img.title}</h5>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Landscape Posters Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {[
+              { src: "/images/creative2.png", title: "Creative Poster 4", tag: "Social Media Campaign" },
+              { src: "/images/creative3.jpg", title: "Creative Poster 5", tag: "Marketing Ad" }
+            ].map((img, idx) => (
+              <div 
+                key={idx} 
+                onClick={() => setActiveImage(img.src)}
+                className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-900 aspect-video cursor-pointer"
+              >
+                <img 
+                  src={img.src} 
+                  alt={img.title} 
+                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 pointer-events-none" />
+                <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">{img.tag}</span>
+                  <h5 className="text-lg font-bold text-white mt-1">{img.title}</h5>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       {/* 3. ISN Report Section */}
