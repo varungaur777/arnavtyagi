@@ -158,7 +158,7 @@ export default function Home() {
           </div>
 
           {/* Grid Layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {/* Portrait Poster 1 */}
             <div 
               onClick={() => setActiveImage("/images/creative1.webp")}
@@ -176,37 +176,20 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Landscape Poster 2 */}
-            <div 
-              onClick={() => setActiveImage("/images/creative2.webp")}
-              className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-900 aspect-video cursor-pointer"
-            >
-              <img 
-                src="/images/creative2.webp" 
-                alt="Creative Poster 2" 
-                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 pointer-events-none" />
-              <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
-                <span className="text-xs font-semibold text-primary uppercase tracking-wider">Social Ad Campaign</span>
-                <h5 className="text-lg font-bold text-white mt-1">Creative Ad Poster 2</h5>
-              </div>
-            </div>
-
-            {/* Portrait Poster 3 */}
+            {/* Portrait Poster 2 */}
             <div 
               onClick={() => setActiveImage("/images/creative5.webp")}
               className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.2)] rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.4)] border border-white/10 bg-neutral-900 aspect-[3/4] cursor-pointer"
             >
               <img 
                 src="/images/creative5.webp" 
-                alt="Creative Poster 3" 
+                alt="Creative Poster 2" 
                 className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 pointer-events-none" />
               <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
                 <span className="text-xs font-semibold text-primary uppercase tracking-wider">Brand Campaign</span>
-                <h5 className="text-lg font-bold text-white mt-1">Creative Ad Poster 3</h5>
+                <h5 className="text-lg font-bold text-white mt-1">Creative Ad Poster 2</h5>
               </div>
             </div>
           </div>
