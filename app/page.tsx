@@ -9,6 +9,8 @@ import { Mail, Phone, Download, X } from "lucide-react";
 export default function Home() {
   const [activeImage, setActiveImage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [activeIsnPortrait, setActiveIsnPortrait] = useState("/images/isn10.webp");
+  const [activeIsnLandscape, setActiveIsnLandscape] = useState("/images/isn1.webp");
 
   useEffect(() => {
     // Show splash animation for exactly 2 seconds from page mount
@@ -223,58 +225,96 @@ export default function Home() {
           </div>
 
           {/* Media Layout */}
-          <div className="space-y-16">
-            {/* Portrait Posters (Featured) */}
-            <div>
-              <div className="text-center mb-8">
-                <h4 className="text-lg font-semibold uppercase tracking-wider text-muted-foreground">Featured Editorial Posters</h4>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                {[10, 11, 12].map((num) => (
-                  <div 
-                    key={num} 
-                    onClick={() => setActiveImage(`/images/isn${num}.webp`)}
-                    className="group relative shadow-[0_0_50px_-12px_rgba(123,44,191,0.3)] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-[0_0_50px_-6px_rgba(123,44,191,0.5)] border border-white/10 bg-neutral-900 aspect-[3/4] cursor-pointer"
-                  >
-                    <img 
-                      src={`/images/isn${num}.webp`} 
-                      alt={`ISN Report Portrait Poster ${num}`} 
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
-                    />
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-black via-transparent to-transparent opacity-60 pointer-events-none" />
-                    <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
-                      <span className="text-xs font-semibold text-primary uppercase tracking-wider">Portrait Release</span>
-                      <h5 className="text-lg font-bold text-white mt-1">Campaign Poster {num - 9}</h5>
-                    </div>
+          <div className="space-y-12">
+            {/* ISN Interactive Hero Showcase */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 max-w-6xl mx-auto items-start">
+              {/* Portrait Hero Display (5 cols) */}
+              <div className="md:col-span-5 flex flex-col items-center">
+                <span className="text-xs font-semibold text-primary uppercase tracking-widest mb-4">Featured Portrait Poster</span>
+                <div 
+                  onClick={() => setActiveImage(activeIsnPortrait)}
+                  className="group relative w-full aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 bg-neutral-900 shadow-[0_0_50px_-12px_rgba(123,44,191,0.3)] cursor-pointer hover:scale-[1.01] transition-transform duration-500"
+                >
+                  <img 
+                    src={activeIsnPortrait} 
+                    alt="ISN Portrait Hero" 
+                    className="object-cover w-full h-full" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 pointer-events-none" />
+                  <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
+                    <span className="text-xs font-bold text-primary uppercase tracking-wider">Tap to enlarge</span>
+                    <h4 className="text-lg font-bold text-white mt-1">
+                      Campaign Poster {parseInt(activeIsnPortrait.match(/\d+/)?.[0] || "10") - 9}
+                    </h4>
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
 
-            {/* Landscape Posters Grid */}
-            <div>
-              <div className="text-center mb-8">
-                <h4 className="text-lg font-semibold uppercase tracking-wider text-muted-foreground">News & Media Templates</h4>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 13].map((num) => (
-                  <div 
-                    key={num} 
-                    onClick={() => setActiveImage(`/images/isn${num}.webp`)}
-                    className="group relative shadow-md rounded-xl overflow-hidden hover:scale-[1.03] transition-all duration-500 border border-white/5 bg-neutral-950 aspect-video cursor-pointer"
-                  >
-                    <img 
-                      src={`/images/isn${num}.webp`} 
-                      alt={`ISN Report Landscape Poster ${num}`} 
-                      className="object-contain w-full h-full p-2 group-hover:scale-[1.02] transition-transform duration-500" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 pointer-events-none" />
-                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none">
-                      <span className="text-xs font-medium text-primary uppercase tracking-wider">Landscape Release</span>
-                      <h5 className="font-bold text-white text-sm mt-0.5">Editorial Template {num === 13 ? 10 : num}</h5>
+                {/* Portrait Thumbnails Grid below */}
+                <div className="grid grid-cols-3 gap-4 w-full max-w-xs mt-6">
+                  {[10, 11, 12].map((num) => (
+                    <div 
+                      key={num} 
+                      onClick={() => setActiveIsnPortrait(`/images/isn${num}.webp`)}
+                      className={`group relative rounded-xl overflow-hidden border cursor-pointer transition-all duration-300 aspect-[3/4] ${
+                        activeIsnPortrait === `/images/isn${num}.webp` 
+                          ? "border-primary ring-2 ring-primary/40 scale-[1.02]" 
+                          : "border-white/10 bg-neutral-900 opacity-60 hover:opacity-100 hover:scale-[1.02]"
+                      }`}
+                    >
+                      <img 
+                        src={`/images/isn${num}.webp`} 
+                        alt={`ISN Portrait Thumbnail ${num}`} 
+                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+                      />
                     </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Landscape Hero Display (7 cols) */}
+              <div className="md:col-span-7 flex flex-col items-center">
+                <span className="text-xs font-semibold text-primary uppercase tracking-widest mb-4">Featured Editorial Template</span>
+                <div 
+                  onClick={() => setActiveImage(activeIsnLandscape)}
+                  className="group relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 bg-neutral-900 shadow-[0_0_50px_-12px_rgba(123,44,191,0.3)] cursor-pointer hover:scale-[1.01] transition-transform duration-500"
+                >
+                  <img 
+                    src={activeIsnLandscape} 
+                    alt="ISN Landscape Hero" 
+                    className="object-contain w-full h-full p-4" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 pointer-events-none" />
+                  <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
+                    <span className="text-xs font-bold text-primary uppercase tracking-wider">Tap to enlarge</span>
+                    <h4 className="text-lg font-bold text-white mt-1">
+                      Editorial Template {(() => {
+                        const num = parseInt(activeIsnLandscape.match(/\d+/)?.[0] || "1");
+                        return num === 13 ? 10 : num;
+                      })()}
+                    </h4>
                   </div>
-                ))}
+                </div>
+
+                {/* Landscape Thumbnails Grid below */}
+                <div className="grid grid-cols-5 gap-3 w-full max-w-xl mt-6">
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 13].map((num) => (
+                    <div 
+                      key={num} 
+                      onClick={() => setActiveIsnLandscape(`/images/isn${num}.webp`)}
+                      className={`group relative rounded-lg overflow-hidden border cursor-pointer transition-all duration-300 aspect-video ${
+                        activeIsnLandscape === `/images/isn${num}.webp` 
+                          ? "border-primary ring-2 ring-primary/40 scale-[1.02]" 
+                          : "border-white/10 bg-neutral-900 opacity-60 hover:opacity-100 hover:scale-[1.02]"
+                      }`}
+                    >
+                      <img 
+                        src={`/images/isn${num}.webp`} 
+                        alt={`ISN Landscape Thumbnail ${num}`} 
+                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
