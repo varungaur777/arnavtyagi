@@ -145,16 +145,20 @@ export default function Home() {
         >
           {/* Section Header */}
           <div className="mb-16 text-center">
-            <h3 className="text-sm font-bold tracking-widest uppercase text-primary mb-2">Graphic Design</h3>
+            <h3 className="text-sm font-bold tracking-widest uppercase text-primary mb-2">E-commerce Branding</h3>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Commercial & Creative Campaigns</h2>
-            <div className="flex justify-center mt-4">
+            <div className="flex flex-col items-center gap-3 mt-4">
               <span className="px-4 py-1.5 text-sm font-semibold text-primary bg-primary/10 rounded-full border border-primary/20">
-                Creative Ads Specialist & Brand Designer
+                Jewelry AI Ads & Poster Designer <span className="text-white/40 mx-2">|</span> April 2026 – Present (Freelancer)
+              </span>
+              <span className="text-muted-foreground text-sm font-medium">
+                Floral Petal – Anti-Tarnish Jewellery Brand, Instagram E-commerce
               </span>
             </div>
-            <p className="text-xl text-muted-foreground mt-6 max-w-2xl mx-auto">
-              A curated collection of premium promotional posters and visual brand advertisements designed for maximum marketing impact.
-            </p>
+            <div className="text-lg text-muted-foreground mt-6 max-w-2xl mx-auto space-y-2">
+              <p>Design AI-generated ad creatives and posters to promote the brand's anti-tarnish jewelry collection on Instagram.</p>
+              <p>Produce visual content aimed at boosting product visibility and supporting e-commerce sales.</p>
+            </div>
           </div>
 
           {/* Grid Layout */}

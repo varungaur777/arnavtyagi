@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const tools = [
   "Kling AI", "Runway", "Higgsfield", "Hailuo AI", 
-  "ElevenLabs", "ChatGPT", "Claude AI", "Gemini", "CapCut"
+  "ElevenLabs", "ChatGPT", "Claude AI", "Gemini", "CapCut", "InVideo"
 ];
 
 export function ToolMarquee() {
